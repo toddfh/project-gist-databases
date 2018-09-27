@@ -31,7 +31,7 @@ def _test_gist_from_json(db_connection, gist_data):
 
 @responses.activate
 def test_importer_imports_data_correctly(
-    gists_database, mocked_requests):
+        gists_database, mocked_requests):
 
     import_gists_to_database(gists_database, 'gvanrossum')
 
@@ -47,7 +47,7 @@ def test_importer_imports_data_correctly(
 
 @responses.activate
 def test_import_with_non_existent_user_raises(
-    gists_database, mocked_requests):
+        gists_database, mocked_requests):
 
     with pytest.raises(exceptions.HTTPError):
         import_gists_to_database(gists_database, 'rmotr-doesnt-exist')

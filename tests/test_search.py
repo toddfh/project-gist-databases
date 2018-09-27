@@ -12,7 +12,6 @@ def test_search_without_parameters_returns_all_gists(db):
 def test_search_with_github_id(db):
     gists = search_gists(db, github_id='4232a4cdad00bd92a7a64cf3e2795820')
     assert len(gists) == 1
-
     gist = gists[0]
     assert gist.github_id == '4232a4cdad00bd92a7a64cf3e2795820'
 
@@ -27,8 +26,9 @@ def test_search_with_created_date_equals(db):
     gist = gists[0]
     assert gist.github_id == '18bdf248a679155f1381'
 
-### Optional functionality
-### Uncomment the tests that you want to implement
+# Optional functionality
+# Uncomment the tests that you want to implement
+
 
 """
 def test_search_with_created_date_gte(db):
