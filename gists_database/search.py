@@ -3,14 +3,13 @@ from pprint import pprint as pp
 
 
 def search_gists(db_connection, **kwargs):
+    params = dict(kwargs)
+
     if not kwargs:
         sql = 'SELECT * FROM gists'
         cursor = db_connection.execute(sql).fetchall()
         return cursor
     elif 'created_at' in kwargs:
-        params = {
-            'created_at': kwargs['created_at']
-        }
         cursor = db_connection.execute("""
             SELECT *
             FROM gists
@@ -18,9 +17,6 @@ def search_gists(db_connection, **kwargs):
             """, params)
 
     elif 'github_id' in kwargs:
-        params = {
-            'github_id': kwargs['github_id']
-        }
         cursor = db_connection.execute("""
             SELECT *
             FROM gists
