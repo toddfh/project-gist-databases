@@ -15,7 +15,6 @@ def search_gists(db_connection, **kwargs):
             FROM gists
             WHERE datetime(created_at)==datetime(:created_at)
             """, params)
-
     elif 'github_id' in kwargs:
         cursor = db_connection.execute("""
             SELECT *
